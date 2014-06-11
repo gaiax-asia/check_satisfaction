@@ -1,0 +1,48 @@
+{
+  "name": "check-satisfaction",
+  "title": "Check Satisfaction",
+  "id": "jid1-0Fs4wtNL7fmE5g",
+  "description": "a basic add-on",
+  "author": "",
+  "license": "MPL 2.0",
+  "version": "0.1",
+  "preferences": [
+    {
+      "name": "autoAppendMessage",
+      "title": "Auto Append Message",
+      "type": "radio",
+      "value": "append",
+      "options": [
+        {
+          "value": "append",
+          "label": "On"
+        },
+        {
+          "value": "dontAppend",
+          "label": "Off"
+        }
+      ]
+    },
+    {
+      "name": "openCustomMessagePanel",
+      "title": "Custom Message",
+      "description": "Open a panel of a custom message that will be automatically appended at the end of the mail message if 'Auto Append Message' is enabled'",
+      "type": "control",
+      "label": "Open Panel"
+    },
+    {
+      "name": "openInboxIdList",
+      "title": "Open Inbox Id List",
+      "description": "Open a panel to display the list of Inbox IDs enabled for auto append of the custom message",
+      "type": "control",
+      "label": "Open Panel"
+    },
+    {
+      "name": "customMessage",
+      "title": "Custom Message String",
+      "type": "string",
+      "hidden": true,
+      "value": "{{fCID}}, {fMGID}, fMGSUBID"
+    }
+  ]
+}
