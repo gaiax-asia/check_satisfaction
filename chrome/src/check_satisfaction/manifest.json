@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "Check Satisfaction",
+  "version": "1.0",
+
+  "options_page": "options.html",
+
+  "permissions": [
+    "storage",
+    "unlimitedStorage"
+  ],
+
+  "content_scripts": [
+    { 
+      "matches": ["https://maildealer.gaiax.com/replyMail.php*"], 
+      "js": ["scripts/constants.js", "scripts/text_appender.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "persistent": false,
+    "scripts": ["scripts/constants.js", "scripts/background.js"]
+  }
+}

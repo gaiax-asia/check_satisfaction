@@ -1,0 +1,159 @@
+* {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: medium;
+}
+
+h1, h2, div {
+  padding: 10px;
+}
+
+small {
+  font-size: small;
+}
+
+h1 {
+  font-size: xx-large;
+}
+
+h2 {
+  font-size: x-large;
+}
+
+body {
+  background-color: #F4F4F4;
+  color: #4A3F36;
+}
+
+.header, .body {
+  padding: 20px;
+}
+
+.page-title {
+  border-bottom: 1px solid #dfdfdf;
+}
+
+label.radio-label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 25px;
+    margin-right: 15px;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+label.radio-label:before {
+    content: "";
+    display: inline-block;
+
+    width: 16px;
+    height: 16px;
+
+    margin-right: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    background-color: #aaa;
+    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+    border-radius: 8px;
+} 
+
+input[type=radio]:checked + label.radio-label:before {
+    content: "\2022";
+    color: #f3f3f3;
+    font-size: 30px;
+    text-align: center;
+    line-height: 16px;
+}  
+
+.textarea-container label{
+  margin-top: 10px;
+  text-align: right;
+  margin-right: 20px;
+  display: inline-block;
+  width: 20%;
+  float: left;
+}
+
+.textarea-container small{
+  clear: both;
+}
+
+.textarea-container div {
+  display: inline-block;
+  width: 70%;
+}
+
+.no-padding {
+  padding: 0px;
+}
+
+textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: thin solid #dfdfdf;
+  outline: none;
+  resize: none;
+}
+
+textarea:focus {
+  border: thin solid #AFBAB9;
+}
+
+.btn-submit {
+  padding: 10px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #ccc;
+  border-color: #ccc;
+  box-shadow: none;
+}
+
+.btn {
+  text-decoration: none;
+  color: grey;
+  display: inline-block;
+  width: 100px;
+  padding: 5px;
+  background-color: #C2BEBE;
+  border-radius: 5px;
+  text-align: center;
+  border: thin solid #C9C4C4;
+}
+
+#mailbox-id, #mailbox-ids {
+  width: 200px;
+}
+
+.btn:hover {
+  background-color: #dfdfdf;
+}
+
+.bordered-top, .footer {
+  border-top: 1px solid #dfdfdf;
+}
+
+.footer {
+  padding: 50px;
+}
+
+.footer p {
+  text-align: center;
+}
+
+.trade {
+  display: block;
+  width: 100%;
+  position: relative;
+  margin-top: 20px;
+}
+
+.trade a {
+  text-align: right;
+  position: absolute;
+  right: 0px;
+  text-decoration: none;
+  color: grey;
+}
