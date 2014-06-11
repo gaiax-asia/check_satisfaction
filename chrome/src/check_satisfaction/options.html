@@ -1,0 +1,34 @@
+<DOCTYPE! html>
+<html>
+  <head>
+    <title>Check Satisfaction Settings</title>
+  </head>
+  <body>
+    <h1>Check Satisfaction Settings</h1>
+    <div>
+      <h2>Reply Text Settings</h2>
+      <div>
+        <form action"#" id="append_setting_form">
+          <div id="text-append-setting-div">
+            <input id="text-append-setting-text" type="radio" name="enabled" value="1">  
+            <label for="text-append-setting-text">ON</label>
+            <input id="text-append-setting-url" type="radio" name="enabled" value="0">  
+            <label for="text-append-setting-url">OFF</label>
+          </div>
+          <div id="mailbox-id-list-div">
+            <label for="mailbox-ids">Mailbox IDs (One ID per line)*:</label><br />
+            <textarea id="mailbox-ids" name="mailbox_ids" cols="84" rows="20"></textarea><br />
+            <small>*Settings will apply to the mailbox specified</small>
+          </div>
+          <div id="text-string-div">
+            <label for="text-append-string">Append Text:</label><br />
+            <textarea id="text-append-string" name="append_string" cols="84" rows="20"></textarea>
+          </div>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
+    <script src="scripts/constants.js"></script>
+    <script src="scripts/options.js"></script>
+  </body>
+</html>
