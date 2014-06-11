@@ -2,31 +2,55 @@
 <html>
   <head>
     <title>Check Satisfaction Settings</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/options.css">
+    
   </head>
   <body>
-    <h1>Check Satisfaction Settings</h1>
-    <div>
+    <div class="header">
+      <h1 class="page-title">Check Satisfaction Settings</h1>
+    </div>
+    
+    <div class="body">
       <h2>Reply Text Settings</h2>
       <div>
         <form action"#" id="append_setting_form">
-          <div id="text-append-setting-div">
+          <div id="text-append-setting-div" class="radio">
             <input id="text-append-setting-text" type="radio" name="enabled" value="1">  
-            <label for="text-append-setting-text">ON</label>
+            <label for="text-append-setting-text" class="radio-label">ON</label>
             <input id="text-append-setting-url" type="radio" name="enabled" value="0">  
-            <label for="text-append-setting-url">OFF</label>
+            <label for="text-append-setting-url" class="radio-label">OFF</label>
           </div>
-          <div id="mailbox-id-list-div">
-            <label for="mailbox-ids">Mailbox IDs (One ID per line)*:</label><br />
-            <textarea id="mailbox-ids" name="mailbox_ids" cols="84" rows="20"></textarea><br />
-            <small>*Settings will apply to the mailbox specified</small>
+          <div id="text-string-div" class="textarea-container">
+            <label for="text-append-string">Append Text:</label>
+            <div>
+              <textarea id="text-append-string" name="append_string" cols="84" rows="20"></textarea>
+            </div>
           </div>
-          <div id="text-string-div">
-            <label for="text-append-string">Append Text:</label><br />
-            <textarea id="text-append-string" name="append_string" cols="84" rows="20"></textarea>
+          <div id="mailbox-id-selector-div" class="textarea-container">
+            <label for="mailbox-id">Mailbox IDs <small>(One ID per line)*</small>:</label>
+            <div class="no-padding">
+              <div>
+                <input name="mailbox_id" id="mailbox-id" />
+                <a href="#mailbox-id-selector-div" id="add-link" class="btn">add item</a>
+              </div>
+              <div>
+                <select name="mailbox_ids" id="mailbox-ids" multiple>
+                </select>
+                <a href="#mailbox-id-selector-div" id="remove-link" class="btn">remove items</a>
+              </div>
+            </div>
           </div>
-          <input type="submit" value="Submit">
+          <div class="bordered-top">
+            <button type="submit" value="Submit" class="btn-submit">Save!</button>
+          </div>
+          
         </form>
       </div>
+    </div>
+    <div class="footer">
+      <p>Developed and Distributed with love and conviction by Gaiax Asia Corporation (Philippines) Programming Team</p>
+      <legend class="trade">Copyright &copy; 2014 version 1.0 <a href="https://www.facebook.com/GaiaX.Official.EN">Gaiax Asia Corporation</a></legend>
     </div>
     <script src="scripts/constants.js"></script>
     <script src="scripts/options.js"></script>

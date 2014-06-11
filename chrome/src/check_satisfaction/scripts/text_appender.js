@@ -10,19 +10,11 @@ function retrieve_data(){
   if(form){
     chrome.storage.local.get(CONSTANTS.TEXT_APPEND_LABEL, function(item){
       var setting = item.append_setting;
-      if(setting && thorough_search(array_params["fCID"], setting.mailbox_ids.trim().split("\n"))){
+      console.log(array_params["fCID"]);
+      if(setting && setting.mailbox_ids.split(",").indexOf(array_params["fCID"].toString()) >= 0){
         form.fBody.value += replace_string_from_params(setting.append_string, array_params);
       }
     });
-  }
-}
-
-function thorough_search(item, stack){
-  for(var k in stack){
-    if(stack[k].toString().trim() == item.toString().trim()){
-      return k;
-      break;
-    }
   }
 }
 
