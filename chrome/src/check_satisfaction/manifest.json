@@ -13,12 +13,12 @@
   "content_scripts": [
     { 
       "matches": ["https://maildealer.gaiax.com/replyMail.php*"], 
-      "js": ["scripts/constants.js", "scripts/text_appender.js"],
+      "js": ["scripts/commons.js", "scripts/text_appender.js"],
       "run_at": "document_end"
     }
   ],
   "background": {
     "persistent": false,
-    "scripts": ["scripts/constants.js", "scripts/background.js"]
+    "scripts": ["scripts/commons.js", "scripts/background.js"]
   }
 }

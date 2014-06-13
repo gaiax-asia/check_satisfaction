@@ -1,7 +1,4 @@
-console.log("Start Working!");
-
 var params_important = ["fCID", "fMGID", "fMGSUBID"];
-
 
 function retrieve_data(){
   var form = document.getElementById("MailForm");
@@ -10,7 +7,6 @@ function retrieve_data(){
   if(form){
     chrome.storage.local.get(CONSTANTS.TEXT_APPEND_LABEL, function(item){
       var setting = item.append_setting;
-      console.log(array_params["fCID"]);
       if(setting && setting.mailbox_ids.split(",").indexOf(array_params["fCID"].toString()) >= 0){
         form.fBody.value += replace_string_from_params(setting.append_string, array_params);
       }

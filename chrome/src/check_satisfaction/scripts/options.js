@@ -5,7 +5,7 @@ function save_append_setting(form){
     append_string = form.append_string.value;
   }
 
-  var item = { type: CONSTANTS.SETTINGS, id: CONSTANTS.TEXT_APPEND_LABEL, append_string: append_string, enabled: form.enabled.value, mailbox_ids: get_selected_values().join() }
+  var item = { type: CONSTANTS.SETTINGS, id: CONSTANTS.TEXT_APPEND_LABEL, append_string: append_string, enabled: form.enabled.value, mailbox_ids: get_all_values().join() }
 
   chrome.storage.local.set({append_setting: item});
 }
@@ -34,23 +34,25 @@ function set_append_settings(){
   });
 }
 
-function toggle(element){
-  document.getElementById("text-string-div").style.display = (element.value == CONSTANTS.ON) ? '' : 'none';
+function toggle(params){
+  if(!params.operation) params.operation = '==';
+  document.getElementById(params.id).style.display = compare[params.operation](params.comparator, params.against) ? '' : 'none';
 }
 
 function add_item(){
   var input = document.getElementById("mailbox-id");
   var select = document.getElementById("mailbox-ids");
-  
   var item = document.createElement("OPTION");
+  var id = input.value.trim();
   
-  if(id = input.value.trim()){
+  if(id && (get_all_values().indexOf(id) < 0) && parseInt(id)){
     item.value = id;
     item.appendChild(document.createTextNode(id));
     select.appendChild(item);
-    input.value = "";
-    input.focus();
   }
+
+  input.value = "";
+  input.focus();
 }
 
 function remove_items(){
@@ -69,6 +71,16 @@ function select_all_items(){
   for (var i = 0; i < select.options.length; i++) { 
     select.options[i].selected = true;
   } 
+}
+
+function get_all_values(){
+  var values = new Array();
+  var select = document.getElementById("mailbox-ids");
+  for (var i = 0; i < select.options.length; i++) { 
+    values.push(select.options[i].value.trim());
+  }
+  
+  return values;
 }
 
 function get_selected_values(){
@@ -110,7 +122,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   set_append_settings();
 
   document.getElementById("append_setting_form").onsubmit = function(){
-    select_all_items();
     save_append_setting(this);
     return false;
   }
@@ -126,7 +137,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
   
   document.getElementById("mailbox-id").onkeypress = function(event){
-    return isNumber(event);
+    var is_number = isNumber(event);
+    toggle({id: "add-link", against: true, comparator: (is_number || ( !is_number && this.value.trim() != "")) });
+    return is_number;
+  }
+  
+  document.getElementById("mailbox-ids").onclick = function(event){
+    toggle({id: "remove-link", against: 0, comparator: this.selectedOptions.length, operation: ">" });
   }
 
   chrome.storage.onChanged.addListener(function(changes, namespace) {
@@ -147,7 +164,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
   radio_buttons = document.getElementsByName("enabled");
   for(var i = 0; i < radio_buttons.length; i++){
     radio_buttons[i].onclick = function(){
-      toggle(this);
+      toggle({id: "text-string-div", against: CONSTANTS.ON, comparator: this.value });
     } 
   }
+  
+  document.getElementById("remove-link").style.display = 'none';
+  document.getElementById("add-link").style.display = 'none';
 });
