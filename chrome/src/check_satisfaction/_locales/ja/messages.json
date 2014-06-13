@@ -1,0 +1,45 @@
+{
+  "add_item": {
+    "message": "アイテムを追加"
+  },
+  "append_text": {
+    "message": "テキストを追加"
+  },
+  "appName": {
+    "message": "満足度を確認してください",
+    "description": "Extension Title"
+  },
+  "changes_saved": {
+    "message": "保存された変更"
+  },
+  "developer_message": {
+    "message": "Developed and Distributed with love and conviction by Gaiax Asia Corporation (Philippines) Programming Team"
+  },
+  "mailbox_ids": {
+    "message": "IDのメールボックス"
+  },
+  "off": {
+    "message": "オフ"
+  },
+  "on": {
+    "message": "上の"
+  },
+  "remove_item": {
+    "message": "項目を削除"
+  },
+  "reply_setting_title": {
+    "message": "テキスト設定返信"
+  },
+  "save": {
+    "message": "保存"
+  },
+  "saved": {
+    "message": "保存"
+  },
+  "setting_title": {
+    "message": "満足度の設定を確認してください"
+  },
+  "settings_deleted": {
+    "message": "削除された設定"
+  }
+}

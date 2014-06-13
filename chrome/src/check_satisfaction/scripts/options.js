@@ -150,11 +150,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     for (key in changes) {
       var change = changes[key];
       if( change.oldValue && change.newValue && change.oldValue != change.newValue ){
-        alert("Changes Saved!");
+        alert(get_translation(CONSTANTS.CHANGES_SAVED) + "!");
       }else if( !change.oldValue && change.newValue ){
-        alert("Saved!");
+        alert(get_translation(CONSTANTS.SAVED) + "!");
       }else if( change.oldValue && !change.newValue ){
-        alert("Settings deleted");
+        alert(get_translation(CONSTANTS.CHANGES_DEL) + "!");
       }
       
       set_append_settings();
