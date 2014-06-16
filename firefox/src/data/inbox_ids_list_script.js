@@ -25,8 +25,8 @@ submitButton.addEventListener("click", function() {
     statusLabel.innerHTML = "Input should not contain letters and special characters";
   } else {
     self.port.emit("saveButtonClicked", textarea.value);
+    clearTexts();
   }
-  clearTexts();
 });
 
 removeButton.addEventListener("click", function() {
@@ -57,7 +57,6 @@ function getSelectedOptionValues(select) {
       result.push(option.value || option.text);
     }
   }
-  console.log(result);
   return result;
 }
 

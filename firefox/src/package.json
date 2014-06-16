@@ -1,5 +1,5 @@
 {
-  "name": "check-satisfaction",
+  "name": "check_satisfaction",
   "title": "Check Satisfaction",
   "id": "jid1-0Fs4wtNL7fmE5g",
   "description": "a basic add-on",
@@ -42,7 +42,7 @@
       "title": "Custom Message String",
       "type": "string",
       "hidden": true,
-      "value": "{{fCID}}, {fMGID}, fMGSUBID"
+      "value": "{{fCID}}, {{fMGID}}, {{fMGSUBID}}"
     }
   ]
 }

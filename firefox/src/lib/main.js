@@ -3,8 +3,8 @@ var ss = require("sdk/simple-storage");
 var prefs = sp.prefs;
 var { data } = require("sdk/self");
 var pageMod = require("sdk/page-mod");
-var toggleButton = require("sdk/ui/button/toggle");
-var windows = require("sdk/windows").browserWindows;
+//var toggleButton = require("sdk/ui/button/toggle");
+//var windows = require("sdk/windows").browserWindows;
 var customMessagePanel = require("sdk/panel").Panel({
   width: 500,
   height: 300,
@@ -68,8 +68,6 @@ inboxIdsListPanel.on("show", function() {
   inboxIdsListPanel.port.emit("panelShow", ss.storage.inboxIds);
 })
 
-ss.storage.inboxIds = typeof ss.storage.inboxIds == "undefined" ? [] : ss.storage.inboxIds
-
 inboxIdsListPanel.port.on("saveButtonClicked", function(inbox_id) {
   if (ss.storage.inboxIds.indexOf(inbox_id) == -1) {
     ss.storage.inboxIds.push(inbox_id);
@@ -116,3 +114,17 @@ pageMod.PageMod({
 //  autoAppendToggleInit();
 //});
 //autoAppendToggleInit();
+
+exports.main = function() {
+  ss.storage.inboxIds = typeof ss.storage.inboxIds == "undefined" ? [] : ss.storage.inboxIds
+}
+
+exports.onUnload = function(reason) {
+  resetPref('customMessage');
+  resetPref('autoAppendMessage');
+  delete ss.storage.inboxIds;
+}
+
+function resetPref(prefName) {
+  require('sdk/preferences/service').reset(['extensions', require('sdk/self').id, prefName].join('.'));
+}
