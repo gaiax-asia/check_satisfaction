@@ -30,7 +30,7 @@ submitButton.addEventListener("click", function() {
 });
 
 removeButton.addEventListener("click", function() {
-  self.port.emit("removeButtonClicked", getSelectedOptionValues());
+  self.port.emit("removeButtonClicked", getSelectedOptionValues(idList));
 });
 
 function createList(inboxIds) {

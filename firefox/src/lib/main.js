@@ -79,18 +79,16 @@ inboxIdsListPanel.port.on("saveButtonClicked", function(inbox_id) {
   }
 })
 
+Array.prototype.diff = function(a) {
+  return this.filter(function(i) {return a.indexOf(i) < 0;});
+};
+
+
 inboxIdsListPanel.port.on("removeButtonClicked", function(idsToDelete) {
-  console.log("removeButtonClicked");
-  var result = [];
-  var id;
-  for (var i in ss.storage.inboxIds) {
-    id = ss.storage.inboxIds[i];
-    if (idsToDelete.indexOf(id) == -1) {
-      result.push(id);
-    }
-  }
-  ss.storage.inboxIds = result;
+  var result = result = ss.storage.inboxIds.diff(idsToDelete);
+
   if (result.length > 0) {
+    ss.storage.inboxIds = result;
     inboxIdsListPanel.port.emit("idsRemoved", ss.storage.inboxIds);
   }
 })
