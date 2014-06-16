@@ -115,7 +115,7 @@ textarea:focus {
   text-decoration: none;
   color: grey;
   display: inline-block;
-  width: 100px;
+  min-width: 100px;
   padding: 5px;
   background-color: #C2BEBE;
   border-radius: 5px;

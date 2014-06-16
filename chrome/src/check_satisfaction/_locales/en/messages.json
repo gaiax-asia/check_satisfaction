@@ -1,0 +1,45 @@
+{
+  "add_item": {
+    "message": "werewt item"
+  },
+  "append_text": {
+    "message": "append text"
+  },
+  "appName": {
+    "message": "Check Satisfaction",
+    "description": "Extension Title"
+  },
+  "changes_saved": {
+    "message": "changes saved"
+  },
+  "developer_message": {
+    "message": "Developed and Distributed with love and conviction by Gaiax Asia Corporation (Philippines) Programming Team"
+  },
+  "mailbox_ids": {
+    "message": "mailbox IDs"
+  },
+  "off": {
+    "message": "off"
+  },
+  "on": {
+    "message": "on"
+  },
+  "remove_item": {
+    "message": "remove item"
+  },
+  "reply_setting_title": {
+    "message": "reply text settings"
+  },
+  "save": {
+    "message": "save"
+  },
+  "saved": {
+    "message": "saved"
+  },
+  "setting_title": {
+    "message": "check satisfaction settings"
+  },
+  "settings_deleted": {
+    "message": "settings deleted"
+  }
+}

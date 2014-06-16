@@ -1,0 +1,45 @@
+{
+  "add_item": {
+    "message": "メールボックスIDを追加"
+  },
+  "append_text": {
+    "message": "自動追加する文章"
+  },
+  "appName": {
+    "message": "check_satisfaction",
+    "description": "Extension Title"
+  },
+  "changes_saved": {
+    "message": "設定を保存しました"
+  },
+  "developer_message": {
+    "message": "Developed and Distributed with love and conviction by Gaiax Asia Corporation (Philippines) Programming Team"
+  },
+  "mailbox_ids": {
+    "message": "メールボックスのID"
+  },
+  "off": {
+    "message": "オフ"
+  },
+  "on": {
+    "message": "オン"
+  },
+  "remove_item": {
+    "message": "メールボックスのIDを削除"
+  },
+  "reply_setting_title": {
+    "message": "返信するテキスト設定"
+  },
+  "save": {
+    "message": "保存する"
+  },
+  "saved": {
+    "message": "保存しました"
+  },
+  "setting_title": {
+    "message": "check_satisfactionの設定"
+  },
+  "settings_deleted": {
+    "message": "設定を削除しました"
+  }
+}
