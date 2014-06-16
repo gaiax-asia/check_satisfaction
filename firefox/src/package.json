@@ -2,7 +2,7 @@
   "name": "check_satisfaction",
   "title": "Check Satisfaction",
   "id": "jid1-0Fs4wtNL7fmE5g",
-  "description": "a basic add-on",
+  "description": "Extension for MailDealer - replyMail that allows you to automatically append a custom message",
   "author": "",
   "license": "MPL 2.0",
   "version": "0.1",
@@ -25,15 +25,13 @@
     },
     {
       "name": "openCustomMessagePanel",
-      "title": "Custom Message",
-      "description": "Open a panel of a custom message that will be automatically appended at the end of the mail message if 'Auto Append Message' is enabled'",
+      "title": "Open Custom Message",
       "type": "control",
       "label": "Open Panel"
     },
     {
       "name": "openInboxIdList",
       "title": "Open Inbox Id List",
-      "description": "Open a panel to display the list of Inbox IDs enabled for auto append of the custom message",
       "type": "control",
       "label": "Open Panel"
     },

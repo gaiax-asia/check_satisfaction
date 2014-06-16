@@ -11,9 +11,12 @@ self.port.on("panelHide", function(text) {
   statusText.innerHTML = "";
 });
 
+self.port.on("messageSaved", function(message) {
+  statusText.innerHTML = message;
+})
+
 submitButton.addEventListener("click", function() {
   self.port.emit("saveButtonClicked", textarea.value);
-  statusText.innerHTML = "Saved!";
 }, false);
 
 cancelButton.addEventListener("click", function() {

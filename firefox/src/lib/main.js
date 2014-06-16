@@ -3,6 +3,7 @@ var ss = require("sdk/simple-storage");
 var prefs = sp.prefs;
 var { data } = require("sdk/self");
 var pageMod = require("sdk/page-mod");
+var _ = require("sdk/l10n").get;
 //var toggleButton = require("sdk/ui/button/toggle");
 //var windows = require("sdk/windows").browserWindows;
 var customMessagePanel = require("sdk/panel").Panel({
@@ -54,6 +55,7 @@ customMessagePanel.on("hide", function() {
 
 customMessagePanel.port.on("saveButtonClicked", function(text) {
   prefs.customMessage = text;
+  customMessagePanel.port.emit("messageSaved", _("saved_id"));
 });
 
 customMessagePanel.port.on("cancelButtonClicked", function() {
@@ -69,11 +71,17 @@ inboxIdsListPanel.on("show", function() {
 })
 
 inboxIdsListPanel.port.on("saveButtonClicked", function(inbox_id) {
-  if (ss.storage.inboxIds.indexOf(inbox_id) == -1) {
-    ss.storage.inboxIds.push(inbox_id);
-    inboxIdsListPanel.port.emit("idSaved", ss.storage.inboxIds);
+  if (inbox_id.match(/[^0-9]/g) != null) {
+    inboxIdsListPanel.port.emit("validationError", _("validation_numeric_only_id"));
+  } else if(!inbox_id) {
+    inboxIdsListPanel.port.emit("validationError", _("validation_must_not_be_blank"));
   } else {
-    inboxIdsListPanel.port.emit("idAlreadyExists", "ID already exists");
+    if (ss.storage.inboxIds.indexOf(inbox_id) == -1) {
+      ss.storage.inboxIds.push(inbox_id);
+      inboxIdsListPanel.port.emit("idSaved", ss.storage.inboxIds);
+    } else {
+      inboxIdsListPanel.port.emit("validationError", _("validation_id_already_exists"));
+    }
   }
 })
 
