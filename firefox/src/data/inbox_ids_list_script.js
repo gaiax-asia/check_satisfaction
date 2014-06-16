@@ -21,16 +21,17 @@ self.port.on("idsRemoved", function(inboxIds){
 })
 
 submitButton.addEventListener("click", function() {
-  statusLabel.innerHTML = "";
   if (textarea.value.match(/[^0-9]/g) != null) {
-    statusLabel.innerHTML = "Input should not contain letters and special characters"
+    statusLabel.innerHTML = "Input should not contain letters and special characters";
   } else {
     self.port.emit("saveButtonClicked", textarea.value);
   }
+  clearTexts();
 });
 
 removeButton.addEventListener("click", function() {
   self.port.emit("removeButtonClicked", getSelectedOptionValues(idList));
+  clearTexts();
 });
 
 function createList(inboxIds) {
@@ -56,5 +57,11 @@ function getSelectedOptionValues(select) {
       result.push(option.value || option.text);
     }
   }
+  console.log(result);
   return result;
+}
+
+function clearTexts() {
+  statusLabel.innerHTML = "";
+  textarea.value = "";
 }

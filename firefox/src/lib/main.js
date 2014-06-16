@@ -83,12 +83,9 @@ Array.prototype.diff = function(a) {
   return this.filter(function(i) {return a.indexOf(i) < 0;});
 };
 
-
 inboxIdsListPanel.port.on("removeButtonClicked", function(idsToDelete) {
-  var result = result = ss.storage.inboxIds.diff(idsToDelete);
-
-  if (result.length > 0) {
-    ss.storage.inboxIds = result;
+  if (idsToDelete.length > 0) {
+    ss.storage.inboxIds = ss.storage.inboxIds.diff(idsToDelete);
     inboxIdsListPanel.port.emit("idsRemoved", ss.storage.inboxIds);
   }
 })
