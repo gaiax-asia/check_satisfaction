@@ -115,14 +115,16 @@ pageMod.PageMod({
 //});
 //autoAppendToggleInit();
 
-exports.main = function() {
+exports.main = function(options) {
   ss.storage.inboxIds = typeof ss.storage.inboxIds == "undefined" ? [] : ss.storage.inboxIds
 }
 
 exports.onUnload = function(reason) {
-  resetPref('customMessage');
-  resetPref('autoAppendMessage');
-  delete ss.storage.inboxIds;
+  if (reason == "disable") {
+    resetPref('customMessage');
+    resetPref('autoAppendMessage');
+    delete ss.storage.inboxIds;
+  }
 }
 
 function resetPref(prefName) {

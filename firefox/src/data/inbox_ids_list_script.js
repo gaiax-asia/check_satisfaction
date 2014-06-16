@@ -22,7 +22,9 @@ self.port.on("idsRemoved", function(inboxIds){
 
 submitButton.addEventListener("click", function() {
   if (textarea.value.match(/[^0-9]/g) != null) {
-    statusLabel.innerHTML = "Input should not contain letters and special characters";
+    statusLabel.innerHTML = "Input must not contain letters, spaces and special characters";
+  } else if(!textarea.value) {
+    statusLabel.innerHTML = "Input must not be empty";
   } else {
     self.port.emit("saveButtonClicked", textarea.value);
     clearTexts();
